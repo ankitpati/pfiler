@@ -13,5 +13,8 @@ eval {
     if ($command eq "touch") {
         new touch(@ARGV)->run();
     }
+    else {
+        die "pfiler: Unrecognised operation!\n";
+    }
 };
 die $@ if $@;
