@@ -3,6 +3,7 @@
 use lib 'commands';
 use touch;
 use cat;
+use rm;
 
 unless (@ARGV) {
     die "Usage:\n\tpfiler.pl <operation> [argument]...\n";
@@ -16,6 +17,9 @@ eval {
     }
     if ($command eq "cat") {
         new cat(@ARGV)->run();
+    }
+    if ($command eq "rm") {
+        new rm(@ARGV)->run();
     }
     else {
         die "pfiler: Unrecognised operation!\n";
