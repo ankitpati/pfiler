@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-package touch;
+package Touch;
 
 sub new {
     die "Usage:\n\ttouch <target>...\n" if @_ < 2;

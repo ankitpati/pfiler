@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-package cat;
+package Cat;
 
 sub new {
     die "Usage:\n\tcat <target>...\n" if @_ < 2;

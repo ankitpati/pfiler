@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-package rm;
+package Rm;
 
 use File::Path;
 

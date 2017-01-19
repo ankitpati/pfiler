@@ -11,13 +11,13 @@ $command = shift @ARGV;
 
 eval {
     if ($command eq "touch") {
-        new touch(@ARGV)->run();
+        new Touch(@ARGV)->run();
     }
     elsif ($command eq "cat") {
-        new cat(@ARGV)->run();
+        new Cat(@ARGV)->run();
     }
     elsif ($command eq "rm") {
-        new rm(@ARGV)->run();
+        new Rm(@ARGV)->run();
     }
     else {
         die "pfiler: Unrecognised operation!\n";
