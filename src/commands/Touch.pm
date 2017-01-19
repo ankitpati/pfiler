@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+use strict;
+use warnings;
+
 package Touch;
 
 sub new {
@@ -13,7 +16,7 @@ sub new {
 }
 
 sub run {
-    $self = shift;
+    my $self = shift;
 
     foreach my $file (@$self) {
         if (-e $file) {
@@ -21,7 +24,7 @@ sub run {
         }
 
         else {
-            open $fh, '>>', $file or die $!."\n";
+            open my $fh, '>>', $file or die $!."\n";
             close $fh or die $!."\n";
         }
     }

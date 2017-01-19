@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+use strict;
+use warnings;
+
 package Cat;
 
 sub new {
@@ -13,7 +16,7 @@ sub new {
 }
 
 sub run {
-    $self = shift;
+    my $self = shift;
 
     foreach my $file (@$self) {
         unless (-e $file) {
@@ -25,7 +28,7 @@ sub run {
         }
 
         else {
-            open $fin, '<', $file or die $!."\n";
+            open my $fin, '<', $file or die $!."\n";
             while (<$fin>) {
                 print $_;
             }

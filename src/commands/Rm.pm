@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+use strict;
+use warnings;
+
 package Rm;
 
 use File::Path;
@@ -15,7 +18,7 @@ sub new {
 }
 
 sub run {
-    $self = shift;
+    my $self = shift;
 
     foreach my $file (@$self) {
         unless (-e $file) {

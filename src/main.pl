@@ -1,5 +1,8 @@
 #!/usr/bin/env perl
 
+use strict;
+use warnings;
+
 use File::Basename;
 require $_ foreach (glob dirname (__FILE__).'/commands/*.pm');
 
@@ -7,7 +10,7 @@ unless (@ARGV) {
     die "Usage:\n\tpfiler.pl <operation> [argument]...\n";
 }
 
-$command = lc shift @ARGV;
+my $command = lc shift @ARGV;
 
 eval {
     if ($command eq "touch") {
