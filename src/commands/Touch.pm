@@ -21,8 +21,8 @@ sub run {
         }
 
         else {
-            open $fh, '>>', $file or die $!;
-            close $fh or die $!;
+            open $fh, '>>', $file or die $!."\n";
+            close $fh or die $!."\n";
         }
     }
 }

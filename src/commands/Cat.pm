@@ -25,11 +25,11 @@ sub run {
         }
 
         else {
-            open $fin, '<', $file or die $!;
+            open $fin, '<', $file or die $!."\n";
             while (<$fin>) {
                 print $_;
             }
-            close $fin or die $!;
+            close $fin or die $!."\n";
         }
     }
 }
