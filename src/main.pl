@@ -31,6 +31,9 @@ eval {
     elsif ($command eq "mkdir") {
         new Mkdir(@ARGV)->run();
     }
+    elsif ($command eq "ll") {
+        new Ll(@ARGV)->run();
+    }
     else {
         die "pfiler: Unrecognised operation!\n";
     }
