@@ -15,10 +15,10 @@ eval {
     if ($command eq "touch") {
         new touch(@ARGV)->run();
     }
-    if ($command eq "cat") {
+    elsif ($command eq "cat") {
         new cat(@ARGV)->run();
     }
-    if ($command eq "rm") {
+    elsif ($command eq "rm") {
         new rm(@ARGV)->run();
     }
     else {
