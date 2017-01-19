@@ -15,7 +15,7 @@ sub new {
 sub run {
     $self = shift;
 
-    foreach my $file (@{$self}) {
+    foreach my $file (@$self) {
         if (-e $file) {
             warn "$file: File/Directory exists.\n";
         }
