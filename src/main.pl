@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-@commands = split /\//, $0;
+@commands = split /\//, __FILE__;
 $commands[$#commands] = 'commands';
 require (glob join ('/', @commands) . '/*.pm');
 
