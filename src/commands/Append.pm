@@ -28,14 +28,14 @@ sub run {
         mkpath dirname $file;
     } or die "Necessary directories could not be created.\n";
 
-    open my $fout, '>>', $file or die $!."\n";
+    open my $fout, '>>', $file or die "$!\n";
 
     print "Enter text to append, terminate with EOF.\n";
     while (<STDIN>) {
         print $fout $_;
     }
 
-    close $fout or die $!."\n";
+    close $fout or die "$!\n";
 }
 
 1;

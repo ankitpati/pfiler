@@ -26,11 +26,11 @@ sub run {
         }
 
         elsif (-d $file) {
-            rmtree([$file]) or die $!."\n";
+            rmtree([$file]) or die "$!\n";
         }
 
         else {
-            unlink $file or die $!."\n";
+            unlink $file or die "$!\n";
         }
     }
 }

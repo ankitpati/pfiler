@@ -35,8 +35,8 @@ sub run {
                 next;
             }
 
-            open my $fh, '>>', $file or die $!."\n";
-            close $fh or die $!."\n";
+            open my $fh, '>>', $file or die "$!\n";
+            close $fh or die "$!\n";
         }
     }
 }
