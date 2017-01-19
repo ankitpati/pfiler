@@ -13,6 +13,8 @@ sub new {
     my $class = shift;
     my $self = [@_];
 
+    push @$self, "." if @_ == 0;
+
     bless $self, $class;
     return $self;
 }
