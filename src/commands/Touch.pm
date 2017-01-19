@@ -27,7 +27,14 @@ sub run {
         }
 
         else {
-            mkpath dirname $file;
+            eval {
+                mkpath dirname $file;
+            };
+            if ($@) {
+                warn "Necessary directories could not be created.\n";
+                next;
+            }
+
             open my $fh, '>>', $file or die $!."\n";
             close $fh or die $!."\n";
         }
