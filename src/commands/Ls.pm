@@ -5,7 +5,7 @@ use warnings;
 
 package Ls;
 
-use File::Spec::Functions;
+use File::Basename;
 
 sub new {
     die "Usage:\n\tls [target]...\n" if @_ < 1;
@@ -27,7 +27,7 @@ sub run {
 
         elsif (-d $file) {
             print "$file:\n";
-            print canonpath ($_)."  " foreach (glob $file.'/*');
+            print basename ($_)."  " foreach (glob $file.'/*');
             print "\n\n";
         }
 
