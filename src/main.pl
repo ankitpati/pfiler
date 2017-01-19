@@ -7,7 +7,7 @@ unless (@ARGV) {
     die "Usage:\n\tpfiler.pl <operation> [argument]...\n";
 }
 
-$command = shift @ARGV;
+$command = lc shift @ARGV;
 
 eval {
     if ($command eq "touch") {
