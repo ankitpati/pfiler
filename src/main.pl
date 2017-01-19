@@ -1,9 +1,8 @@
 #!/usr/bin/env perl
 
-use lib 'commands';
-use touch;
-use cat;
-use rm;
+@commands = split /\//, $0;
+$commands[$#commands] = 'commands';
+require (glob join ('/', @commands) . '/*.pm');
 
 unless (@ARGV) {
     die "Usage:\n\tpfiler.pl <operation> [argument]...\n";
