@@ -22,6 +22,9 @@ eval {
     elsif ($command eq "rm") {
         new Rm(@ARGV)->run();
     }
+    elsif ($command eq "append") {
+        new Append(@ARGV)->run();
+    }
     else {
         die "pfiler: Unrecognised operation!\n";
     }
