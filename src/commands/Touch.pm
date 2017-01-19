@@ -5,6 +5,9 @@ use warnings;
 
 package Touch;
 
+use File::Basename;
+use File::Path;
+
 sub new {
     die "Usage:\n\ttouch <target>...\n" if @_ < 2;
 
@@ -24,6 +27,7 @@ sub run {
         }
 
         else {
+            mkpath dirname $file;
             open my $fh, '>>', $file or die $!."\n";
             close $fh or die $!."\n";
         }
