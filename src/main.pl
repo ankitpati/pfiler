@@ -40,6 +40,9 @@ eval {
     elsif ($command eq "cp") {
         new Cp(@ARGV)->run();
     }
+    elsif ($command eq "mv") {
+        new Mv(@ARGV)->run();
+    }
     else {
         die "pfiler: Unrecognised operation!\n";
     }
