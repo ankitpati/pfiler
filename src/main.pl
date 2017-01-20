@@ -34,6 +34,9 @@ eval {
     elsif ($command eq "ll") {
         new Ll(@ARGV)->run();
     }
+    elsif ($command eq "chmod") {
+        new Chmod(@ARGV)->run();
+    }
     else {
         die "pfiler: Unrecognised operation!\n";
     }
