@@ -43,6 +43,9 @@ eval {
     elsif ($command eq "mv") {
         new Mv(@ARGV)->run();
     }
+    elsif ($command eq "help") {
+        new Help(@ARGV)->run();
+    }
     else {
         die "pfiler: Unrecognised operation!\n";
     }
