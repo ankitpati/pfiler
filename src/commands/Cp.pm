@@ -12,13 +12,24 @@ use File::Copy;
 use File::Find;
 
 sub new {
-    die "Usage:\n\tcp <source> <target>\n" if @_ != 3;
+    &illegal_arguments if @_ != 3;
 
     my $class = shift;
     my $self = [@_];
 
     bless $self, $class;
     return $self;
+}
+
+sub illegal_arguments {
+    die "Usage:\n\tcp <source> <target>\n";
+}
+
+sub core_action {
+    copy shift, shift or die "Could not be copied.\n";
+}
+
+sub post_action {
 }
 
 sub action {
@@ -38,11 +49,13 @@ sub action {
         }
 
         else {
-            copy $src, $dst or die "$src: Could not be copied.\n";
+            core_action $src, $dst;
         }
     };
 
     find {wanted => \&per_file, no_chdir => 1}, $source;
+
+    post_action $source;
 }
 
 sub run {
