@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use File::Basename;
-require $_ foreach (glob dirname (__FILE__).'/commands/*.pm');
+require foreach (glob dirname (__FILE__).'/commands/*.pm');
 
 unless (@ARGV) {
     die "Usage:\n\tpfiler.pl <operation> [argument]...\n";
