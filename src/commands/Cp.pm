@@ -49,7 +49,9 @@ sub action {
         }
 
         else {
-            core_action $src, $dst;
+            my $per_file_dest = $dst;
+            $per_file_dest =~ s/\/.$//;
+            core_action $src, $per_file_dest;
         }
     };
 
