@@ -74,7 +74,7 @@ sub run {
 
     unless (-e $target) {
         eval {
-            mkpath dirname $target
+            mkpath dirname $target;
         };
         if ($@) {
             die "Necessary directories could not be created.\n";
