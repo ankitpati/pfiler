@@ -29,7 +29,7 @@ sub run {
 
         elsif (-d $file) {
             print "$file:\n";
-            printf "%03o  ".basename ($_)."\n", (stat $_)[2] & 0777
+            printf "%03o  ".basename ($_)."\n", (stat)[2] & 0777
                                                     foreach (glob $file.'/*');
             print "\n";
         }
