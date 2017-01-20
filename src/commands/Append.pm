@@ -25,7 +25,7 @@ sub run {
     -d $file and die "$file: Is a directory.\n";
 
     eval {
-        mkpath dirname $file;
+        mkpath dirname $file unless (-e dirname $file);
     } or die "Necessary directories could not be created.\n";
 
     open my $fout, '>>', $file or die "$!\n";
