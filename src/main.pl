@@ -37,6 +37,9 @@ eval {
     elsif ($command eq "chmod") {
         new Chmod(@ARGV)->run();
     }
+    elsif ($command eq "cp") {
+        new Cp(@ARGV)->run();
+    }
     else {
         die "pfiler: Unrecognised operation!\n";
     }
