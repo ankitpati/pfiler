@@ -30,7 +30,7 @@ sub run {
         else {
             open my $fin, '<', $file or die "$!\n";
             while (<$fin>) {
-                print $_;
+                print;
             }
             close $fin or die "$!\n";
         }
