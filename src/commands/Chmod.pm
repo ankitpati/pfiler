@@ -17,8 +17,7 @@ sub new {
 
     die "Invalid mode\n" unless ($self->{perms} =~ /^[0-7]{3}$/);
 
-    bless $self, $class;
-    return $self;
+    return bless $self;
 }
 
 sub run {

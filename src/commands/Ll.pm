@@ -15,8 +15,7 @@ sub new {
 
     push @$self, "." if @_ == 0;
 
-    bless $self, $class;
-    return $self;
+    return bless $self;
 }
 
 sub run {
