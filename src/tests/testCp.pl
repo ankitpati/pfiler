@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 use File::Basename;
 use File::Path;
 require foreach (glob dirname (__FILE__).'/../commands/*.pm');
@@ -24,6 +24,11 @@ sub test {
     ok -f "check-single-file-copy", "Single File";
     ok -d "check-single-directory-copy", "Single Directory";
     ok -d "check/nested-copy", "Nested Nonempty Directory";
+
+    eval {
+        new Cp("check-inexistent-file", "check-inexistent-file-copy")->run();
+    };
+    ok $@, "Inexistent File";
 }
 
 sub teardown {
