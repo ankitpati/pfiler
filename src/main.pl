@@ -49,4 +49,4 @@ eval {
     else {
         die "pfiler: Unrecognised operation!\n";
     }
-} or die $@."\n";
+} or die "$@\n";
