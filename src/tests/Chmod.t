@@ -11,14 +11,14 @@ require foreach (glob dirname (__FILE__).'/../commands/*.pm');
 print "testing Chmod.pm...\n";
 
 sub setup {
-    new Touch("check-single-file")->run();
-    new Mkdir("check-single-directory")->run();
-    new Touch("check/nested/file")->run();
+    new Touch("check-single-file")->run;
+    new Mkdir("check-single-directory")->run;
+    new Touch("check/nested/file")->run;
 
-    new Chmod("644", "check-single-file")->run();
-    new Chmod("755", "check-single-directory")->run();
-    new Chmod("777", "check/nested")->run();
-    new Chmod("777", "check/nested/file")->run();
+    new Chmod("644", "check-single-file")->run;
+    new Chmod("755", "check-single-directory")->run;
+    new Chmod("777", "check/nested")->run;
+    new Chmod("777", "check/nested/file")->run;
 }
 
 sub test {

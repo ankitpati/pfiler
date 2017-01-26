@@ -11,13 +11,13 @@ require foreach (glob dirname (__FILE__).'/../commands/*.pm');
 print "testing Mv.pm...\n";
 
 sub setup {
-    new Touch("check-single-file")->run();
-    new Mkdir("check-single-directory")->run();
-    new Touch("check/nested/nonempty/directory")->run();
+    new Touch("check-single-file")->run;
+    new Mkdir("check-single-directory")->run;
+    new Touch("check/nested/nonempty/directory")->run;
 
-    new Mv("check-single-file", "check-single-file-copy")->run();
-    new Mv("check-single-directory", "check-single-directory-copy")->run();
-    new Mv("check/nested", "check/nested-copy")->run();
+    new Mv("check-single-file", "check-single-file-copy")->run;
+    new Mv("check-single-directory", "check-single-directory-copy")->run;
+    new Mv("check/nested", "check/nested-copy")->run;
 }
 
 sub test {
@@ -30,7 +30,7 @@ sub test {
     ok not (-d "check/nested"), "Nested Nonempty Directory Removed";
 
     eval {
-        new Mv("check-inexistent-file", "check-inexistent-file-copy")->run();
+        new Mv("check-inexistent-file", "check-inexistent-file-copy")->run;
     };
     ok $@, "Inexistent File";
 }

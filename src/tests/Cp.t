@@ -11,13 +11,13 @@ require foreach (glob dirname (__FILE__).'/../commands/*.pm');
 print "testing Cp.pm...\n";
 
 sub setup {
-    new Touch("check-single-file")->run();
-    new Mkdir("check-single-directory")->run();
-    new Touch("check/nested/nonempty/directory")->run();
+    new Touch("check-single-file")->run;
+    new Mkdir("check-single-directory")->run;
+    new Touch("check/nested/nonempty/directory")->run;
 
-    new Cp("check-single-file", "check-single-file-copy")->run();
-    new Cp("check-single-directory", "check-single-directory-copy")->run();
-    new Cp("check/nested", "check/nested-copy")->run();
+    new Cp("check-single-file", "check-single-file-copy")->run;
+    new Cp("check-single-directory", "check-single-directory-copy")->run;
+    new Cp("check/nested", "check/nested-copy")->run;
 }
 
 sub test {
@@ -26,7 +26,7 @@ sub test {
     ok -d "check/nested-copy", "Nested Nonempty Directory";
 
     eval {
-        new Cp("check-inexistent-file", "check-inexistent-file-copy")->run();
+        new Cp("check-inexistent-file", "check-inexistent-file-copy")->run;
     };
     ok $@, "Inexistent File";
 }

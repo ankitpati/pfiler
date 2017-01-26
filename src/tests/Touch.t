@@ -11,10 +11,10 @@ require foreach (glob dirname (__FILE__).'/../commands/*.pm');
 print "testing Touch.pm...\n";
 
 sub setup {
-    new Touch("check-single-file")->run();
-    new Touch("check/inexistent/path")->run();
-    new Touch("check/existent/path")->run();
-    new Touch("check/multiple/arguments0", "check/multiple/arguments1")->run();
+    new Touch("check-single-file")->run;
+    new Touch("check/inexistent/path")->run;
+    new Touch("check/existent/path")->run;
+    new Touch("check/multiple/arguments0", "check/multiple/arguments1")->run;
 }
 
 sub test {

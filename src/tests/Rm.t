@@ -11,13 +11,13 @@ require foreach (glob dirname (__FILE__).'/../commands/*.pm');
 print "testing Rm.pm...\n";
 
 sub setup {
-    new Touch("check-single-file")->run();
-    new Mkdir("check-single-directory")->run();
-    new Touch("check/nested/nonempty/directory")->run();
+    new Touch("check-single-file")->run;
+    new Mkdir("check-single-directory")->run;
+    new Touch("check/nested/nonempty/directory")->run;
 
-    new Rm("check-single-file")->run();
-    new Rm("check-single-directory")->run();
-    new Rm("check/nested")->run();
+    new Rm("check-single-file")->run;
+    new Rm("check-single-directory")->run;
+    new Rm("check/nested")->run;
 }
 
 sub test {

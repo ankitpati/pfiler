@@ -14,37 +14,37 @@ my $command = lc shift @ARGV;
 
 eval {
     if ($command eq "touch") {
-        new Touch(@ARGV)->run();
+        new Touch(@ARGV)->run;
     }
     elsif ($command eq "cat") {
-        new Cat(@ARGV)->run();
+        new Cat(@ARGV)->run;
     }
     elsif ($command eq "rm") {
-        new Rm(@ARGV)->run();
+        new Rm(@ARGV)->run;
     }
     elsif ($command eq "append") {
-        new Append(@ARGV)->run();
+        new Append(@ARGV)->run;
     }
     elsif ($command eq "ls") {
-        new Ls(@ARGV)->run();
+        new Ls(@ARGV)->run;
     }
     elsif ($command eq "mkdir") {
-        new Mkdir(@ARGV)->run();
+        new Mkdir(@ARGV)->run;
     }
     elsif ($command eq "ll") {
-        new Ll(@ARGV)->run();
+        new Ll(@ARGV)->run;
     }
     elsif ($command eq "chmod") {
-        new Chmod(@ARGV)->run();
+        new Chmod(@ARGV)->run;
     }
     elsif ($command eq "cp") {
-        new Cp(@ARGV)->run();
+        new Cp(@ARGV)->run;
     }
     elsif ($command eq "mv") {
-        new Mv(@ARGV)->run();
+        new Mv(@ARGV)->run;
     }
     elsif ($command eq "help") {
-        new Help(@ARGV)->run();
+        new Help(@ARGV)->run;
     }
     else {
         die "pfiler: Unrecognised operation!\n";

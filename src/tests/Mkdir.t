@@ -11,10 +11,10 @@ require foreach (glob dirname (__FILE__).'/../commands/*.pm');
 print "testing Mkdir.pm...\n";
 
 sub setup {
-    new Mkdir("check-single-directory")->run();
-    new Mkdir("check/inexistent/path")->run();
-    new Mkdir("check/existent/path")->run();
-    new Mkdir("check/multiple/arguments0", "check/multiple/arguments1")->run();
+    new Mkdir("check-single-directory")->run;
+    new Mkdir("check/inexistent/path")->run;
+    new Mkdir("check/existent/path")->run;
+    new Mkdir("check/multiple/arguments0", "check/multiple/arguments1")->run;
 }
 
 sub test {
