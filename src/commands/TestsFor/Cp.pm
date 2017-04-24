@@ -1,26 +1,26 @@
-#!/usr/bin/env perl
-
 use strict;
 use warnings;
 
-use Test::More tests => 4;
+package TestsFor::Cp;
+
+use Test::Class::Moose;
+
 use File::Basename;
 use File::Path;
+
 require foreach (glob dirname (__FILE__).'/../*.pm');
 
-print "testing Cp.pm...\n";
-
-sub setup {
+sub test_startup {
     new Touch("check-single-file")->run;
     new Mkdir("check-single-directory")->run;
     new Touch("check/nested/nonempty/directory")->run;
+}
 
+sub test_cp {
     new Cp("check-single-file", "check-single-file-copy")->run;
     new Cp("check-single-directory", "check-single-directory-copy")->run;
     new Cp("check/nested", "check/nested-copy")->run;
-}
 
-sub test {
     ok -f "check-single-file-copy", "Single File";
     ok -d "check-single-directory-copy", "Single Directory";
     ok -d "check/nested-copy", "Nested Nonempty Directory";
@@ -31,11 +31,9 @@ sub test {
     ok $@, "Inexistent File";
 }
 
-sub teardown {
+sub test_shutdown {
     rmtree([glob 'check*']) or warn "check*/: Not cleaned up.\n";
     unlink or warn "$_: Not cleaned up.\n" foreach (glob 'check*');
 }
 
-setup;
-test;
-teardown;
+1;

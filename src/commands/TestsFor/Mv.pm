@@ -1,16 +1,16 @@
-#!/usr/bin/env perl
-
 use strict;
 use warnings;
 
-use Test::More tests => 7;
+package TestsFor::Mv;
+
+use Test::Class::Moose;
+
 use File::Basename;
 use File::Path;
+
 require foreach (glob dirname (__FILE__).'/../*.pm');
 
-print "testing Mv.pm...\n";
-
-sub setup {
+sub test_startup {
     new Touch("check-single-file")->run;
     new Mkdir("check-single-directory")->run;
     new Touch("check/nested/nonempty/directory")->run;
@@ -20,7 +20,7 @@ sub setup {
     new Mv("check/nested", "check/nested-copy")->run;
 }
 
-sub test {
+sub test_mv {
     ok -f "check-single-file-copy", "Single File Copied";
     ok -d "check-single-directory-copy", "Single Directory Copied";
     ok -d "check/nested-copy", "Nested Nonempty Directory Copied";
@@ -35,11 +35,9 @@ sub test {
     ok $@, "Inexistent File";
 }
 
-sub teardown {
+sub test_shutdown {
     rmtree([glob 'check*']) or warn "check*/: Not cleaned up.\n";
     unlink or warn "$_: Not cleaned up.\n" foreach (glob 'check*');
 }
 
-setup;
-test;
-teardown;
+1;
