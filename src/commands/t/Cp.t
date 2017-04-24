@@ -6,7 +6,7 @@ use warnings;
 use Test::More tests => 4;
 use File::Basename;
 use File::Path;
-require foreach (glob dirname (__FILE__).'/../commands/*.pm');
+require foreach (glob dirname (__FILE__).'/../*.pm');
 
 print "testing Cp.pm...\n";
 

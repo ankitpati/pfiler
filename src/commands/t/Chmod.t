@@ -6,7 +6,7 @@ use warnings;
 use Test::More tests => 5;
 use File::Basename;
 use File::Path;
-require foreach (glob dirname (__FILE__).'/../commands/*.pm');
+require foreach (glob dirname (__FILE__).'/../*.pm');
 
 print "testing Chmod.pm...\n";
 
