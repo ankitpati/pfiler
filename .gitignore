@@ -6,4 +6,5 @@
 /MYMETA.*
 *.o
 *.bs
+*.swp
 cover_db
