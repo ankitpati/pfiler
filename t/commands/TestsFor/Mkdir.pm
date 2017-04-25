@@ -8,7 +8,7 @@ use Test::Class::Moose;
 use File::Basename;
 use File::Path;
 
-require foreach (glob dirname (__FILE__).'/../*.pm');
+require foreach (glob dirname (__FILE__).'/../../../src/commands/*.pm');
 
 sub test_startup {
     new Mkdir("check-single-directory")->run;
