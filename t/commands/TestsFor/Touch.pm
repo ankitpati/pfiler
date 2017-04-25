@@ -8,7 +8,9 @@ use Test::Class::Moose;
 use File::Basename;
 use File::Path;
 
-require foreach (glob dirname (__FILE__).'/../../../src/commands/*.pm');
+use lib dirname (__FILE__).'/../../../src/commands';
+
+use Touch;
 
 sub test_startup {
     new Touch("check-single-file")->run;
