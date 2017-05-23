@@ -37,27 +37,28 @@ sub post_action {
 sub action {
     my ($source, $target) = @_;
 
-    local *per_file = sub {
-        my $src = $_;
-        my $dst = catfile $target, abs2rel $src, $source;
+    find {
+        wanted => sub {
+            my $src = $_;
+            my $dst = catfile $target, abs2rel $src, $source;
 
-        if (-d $src) {
-            eval {
-                mkpath $dst;
-            };
-            if ($@) {
-                die "$dst: Cannot create directory.\n";
+            if (-d $src) {
+                eval {
+                    mkpath $dst;
+                };
+                if ($@) {
+                    die "$dst: Cannot create directory.\n";
+                }
             }
-        }
 
-        else {
-            my $per_file_dest = $dst;
-            $per_file_dest =~ s/\/.$//;
-            core_action $src, $per_file_dest;
-        }
-    };
-
-    find {wanted => \&per_file, no_chdir => 1}, $source;
+            else {
+                my $per_file_dest = $dst;
+                $per_file_dest =~ s/\/.$//;
+                core_action $src, $per_file_dest;
+            }
+        },
+        no_chdir => 1
+    }, $source;
 
     post_action $source;
 }
